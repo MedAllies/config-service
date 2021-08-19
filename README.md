@@ -1,6 +1,6 @@
 # config-service
 
-Configuration Service Standalone Spring Boot Micro-service Application based on Direct Java RI6
+Configuration Service Standalone Spring Boot Micro-service Application based on Direct Java RI8
 
 ## Build Component
 This project is using maven pom.xml file for the build lifecyle.
@@ -29,7 +29,7 @@ To create docker image or `config-service` run command below:
 `docker build -t config-service:latest .`
 
 When running created image containerized microservice will start on default port `8082` with default `admin` user and `direct` password.
-To fully operate HISP you will need to provide default domain as `DEFAULT_DOMAIN` and default postmaster email address as `DEFAULT_POSTMASTER` environmental variables. 
+To fully operate HISP you will need to provide default domain as `DEFAULT_DOMAIN` and default postmaster email address as `DEFAULT_POSTMASTER` environmental variables.
 
 ## Dependencies
 

@@ -4,7 +4,7 @@ FROM openjdk:8u282-jre
 LABEL tag=config-service
 
 # Build arguments
-ARG BUILD_VERSION=6.0
+ARG BUILD_VERSION=8.1.0-SNAPSHOT
 
 # Create and use local user and group
 RUN addgroup direct && adduser direct --ingroup direct
