@@ -15,6 +15,7 @@ RUN chown direct:direct /opt/app
 ENV PROJECT_HOME /opt/app
 
 # Set microservice
+ENV CLOUD_CONFIG=true
 ENV SERVICE_PORT=8082
 ENV SERVICE_USERNAME=admin
 ENV SERVICE_PASSWORD=direct
@@ -34,6 +35,7 @@ ENV MYSQL_PASSWORD=nhind
 USER direct:direct
 
 # Copy application artifact
+COPY bootstrap.properties $PROJECT_HOME/bootstrap.properties
 COPY application.properties $PROJECT_HOME/application.properties
 COPY target/config-service-$BUILD_VERSION.jar $PROJECT_HOME/config-service.jar
 
