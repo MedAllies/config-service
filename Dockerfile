@@ -27,6 +27,9 @@ RUN mkdir -p /opt/app
 RUN chown direct:direct /opt/app
 ENV PROJECT_HOME /opt/app
 
+ARG DEPLOY_PLATFORM=docker
+ENV DEPLOY_PLATFORM ${DEPLOY_PLATFORM}
+
 # Set microservice
 ENV CLOUD_CONFIG=true
 ENV SERVICE_PORT=8082
@@ -48,8 +51,8 @@ ENV MYSQL_PASSWORD=nhind
 USER direct:direct
 
 # Copy application artifact
-COPY bootstrap.properties $PROJECT_HOME/bootstrap.properties
-COPY application.properties $PROJECT_HOME/application.properties
+COPY src/main/resources/bootstrap-$DEPLOY_PLATFORM.properties $PROJECT_HOME/bootstrap.properties
+COPY src/main/resources/application-$DEPLOY_PLATFORM.properties $PROJECT_HOME/application.properties
 COPY target/config-service-$BUILD_VERSION.jar $PROJECT_HOME/config-service.jar
 
 #chmod +x configServiceDomain.sh on a local before copy
